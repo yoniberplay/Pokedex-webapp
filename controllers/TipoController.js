@@ -76,7 +76,7 @@ exports.GetEditTipos = (req, res, next) => {
 exports.PostEditTipos = (req, res, next) => {
     const name = req.body.Name;
     const description = req.body.description;
-  const tipoId = req.body.tipoId;
+    const tipoId = req.body.tipoId;
 
   Tipos.update({ name: name, description: description }, { where: { id: tipoId } })
     .then((result) => {
@@ -89,6 +89,29 @@ exports.PostEditTipos = (req, res, next) => {
           });
     });
 };
+
+exports.PostConfirmDeleteTipos = (req, res, next) => {
+  const tipoId = req.body.tipoId;
+
+  Tipos.findOne({ where: { id: tipoId } })
+    .then((result) => {
+      const tipo = result.dataValues;
+      if (!tipo) {
+        return res.redirect("/tipos");
+      }
+    res.render("tipos/confirm-delete-tipos", {
+      pageTitle: "Confirmacion",
+      tipo: tipo,
+    });
+  })
+  .catch((err) => {
+      res.render("Error/ErrorInterno", {
+          pageTitle: "Error Interno",
+          mensaje: err,
+        });
+  });
+};
+
 
 exports.PostDeleteTipos = (req, res, next) => {
     const tipoId = req.body.tipoId;

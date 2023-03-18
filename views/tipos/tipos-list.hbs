@@ -1,0 +1,49 @@
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">Pokedex App</h1>
+      <p class="lead text-muted">Una aplicacion hecha por amantes de pokemones para
+        amantes de pokemones</p>
+      <p>
+        <a href="/create-tipos" class="btn btn-secondary my-2">Crear nuevo tipo</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="album py-5 ">
+  <div class="container">
+
+    <div class="row">
+
+      {{#if hasTipos}}
+
+        {{#each tipos as |tip|}}
+
+          <div class="card col-md-3 bg-dark">
+            <div class="card-body">
+              <h5 class="card-title">{{tip.name}}</h5>
+
+              <a
+                href="/edit-tipos/{{tip.Id}}?edit=true"
+                class="btn btn-warning"
+              >Editar</a>
+
+              <form class="form-inline" action="/confirm-delete-tipos" method="post">
+                <input type="hidden" name="tipoId" value="{{tip.Id}}" />
+                <button type="submit"  class="btn btn-danger">Eliminar</button>
+
+              </form>
+            </div>
+          </div>
+
+        {{/each}}
+      {{else}}
+
+        <h1>No hay tipos de pokemones creados</h1>
+
+      {{/if}}
+
+    </div>
+  </div>
+</div>

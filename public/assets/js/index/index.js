@@ -1,13 +1,9 @@
-$(document).ready(function(){
+$(document).ready(() => {
 
-
-  $("#delete-heroes").on('click',function(e){
+  $("#delete-tipos").on('click',function(e){
     e.preventDefault();   
-
-    if(confirm("Estas seguro que deseas eliminar este heroe?")){
-        $("#form-delete").submit();
+    if(confirm("Estas seguro que deseas eliminar este tipo de pokemon?")){
+        $("#form-delete-tipos").submit();
     }
-
   });
-
 });

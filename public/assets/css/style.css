@@ -48,7 +48,7 @@ color: white;
 }
 
 input[type="text"]:focus {
-  color: white; 
+  /* color: white;  */
   border: 1px solid #555; 
   outline: none; 
 }

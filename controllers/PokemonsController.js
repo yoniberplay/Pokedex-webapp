@@ -89,7 +89,7 @@ exports.GetEditPokemons = (req, res, next) => {
         return res.redirect("/");
       }
 
-      console.log(poke);
+      // console.log(poke);
 
       let regionsViewModel;
       let TipoViewModel;

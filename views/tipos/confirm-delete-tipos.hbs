@@ -1,0 +1,13 @@
+<div class="card col-md-3 bg-dark">
+    <div class="card-body">
+        <p class="lead text-muted">Esta seguro que desea eliminar el tipo de pokemon</p>
+        <h5 class="card-title">{{tipo.name}}</h5>
+        <form class="form-inline" action="/delete-tipos" method="post">
+            <input type="hidden" name="tipoId" value="{{tipo.Id}}" />
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <a href="/tipos" type="button" class="btn btn-warning">volver atras</a>
+
+
+        </form>
+    </div>
+</div>
