@@ -1,0 +1,113 @@
+.main{
+  margin: 0.5rem;
+  padding: 0px;
+  border: solid;
+  border-color: #7EA9CF;
+}
+.status-circle {
+  margin-left: 0.5rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%; /* Esto establece que el elemento tenga forma de círculo */
+}
+
+/* Estilos para el estado activo */
+.status-circle.active {
+  background-color: green;
+}
+
+/* Estilos para el estado inactivo */
+.status-circle.inactive {
+  background-color: red;
+}
+body{
+  background-color: black;
+}
+
+
+.container {
+  text-align: center;
+}
+
+
+
+.center {
+  text-align: center;
+  justify-content: center;
+
+}
+
+
+.mt-4 {
+  margin-top: 4%;
+
+}
+
+.theme{
+color: white;
+}
+
+input[type="text"]:focus {
+  color: white; 
+  border: 1px solid #555; 
+  outline: none; 
+}
+
+html{
+  background-color: #DFEBF7;
+}
+p,
+h4,h5,h6 {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: white;
+  margin: 0px;
+  font-family: sans-serif;
+}
+
+h1,h2 {
+  text-align: center;
+  justify-content: center;
+  color: #0D4378;
+}
+
+span{
+  color: #7FB1D3;
+}
+
+.header {
+  height: 20px;
+}
+
+.metales {
+  width: 700px;
+  display: inline-block;
+  border: solid;
+  border-color: white;
+  margin: 0px -4px -4px;
+  overflow: auto;
+}
+
+.no-metales {
+
+  width: 349px;
+  display: inline-block;
+  border: solid;
+  border-color: white;
+
+  margin: 0px -4px -4px;
+  overflow: auto;
+}
+
+.metaloides {
+
+  width: 115px;
+  display: inline-block;
+  border: solid;
+  border-color: white;
+
+  margin: 0px -4px -4px;
+}
+
