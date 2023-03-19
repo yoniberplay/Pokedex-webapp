@@ -1,0 +1,12 @@
+<div class="card col-md-3 bg-dark">
+    <div class="card-body">
+        <p class="lead text-muted">Esta seguro que desea eliminar el pokemon</p>
+        <h5 class="card-title">{{poke.name}}</h5>
+        <form class="form-inline" action="/delete-pokemon" method="post">
+            <input type="hidden" name="pokemonId" value="{{poke.Id}}" />
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <a href="/pokemon" type="button" class="btn btn-warning">volver atras</a>
+
+        </form>
+    </div>
+</div>

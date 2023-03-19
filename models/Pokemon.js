@@ -17,10 +17,6 @@ const Pokemons = connection.define("Pokemons", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  tipo: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
   description: {
     type: DataTypes.STRING,
     allowNull: false,

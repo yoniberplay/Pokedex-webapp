@@ -38,7 +38,7 @@ exports.PostCreateRegions = (req, res, next) => {
     })
     .catch((err) => {
         res.render("Error/ErrorInterno", {
-            pageTitle: "Error Interno",
+            pageTitle: "Error",
             mensaje: err,
           });
     });
@@ -89,6 +89,29 @@ exports.PostEditRegions = (req, res, next) => {
           });
     });
 };
+
+exports.PostConfirmDeleteRegions = (req, res, next) => {
+  const regionId = req.body.regionId;
+
+  Regions.findOne({ where: { id: regionId } })
+    .then((result) => {
+      const region = result.dataValues;
+      if (!region) {
+        return res.redirect("/regions");
+      }
+    res.render("regions/confirm-delete-regions", {
+      pageTitle: "Confirmacion",
+      region: region,
+    });
+  })
+  .catch((err) => {
+      res.render("Error/ErrorInterno", {
+          pageTitle: "Error Interno",
+          mensaje: err,
+        });
+  });
+};
+
 
 exports.PostDeleteRegions = (req, res, next) => {
     const regionId = req.body.regionId;

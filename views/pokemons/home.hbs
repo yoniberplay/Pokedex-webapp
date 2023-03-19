@@ -1,10 +1,9 @@
 <section class="py-5 text-center container">
   <div class="row py-lg-5">
     <div class="col-lg-6 col-md-8 mx-auto">
-      <h1 class="fw-light">Mantenimineto de Pokemones</h1>
-      <p>
-        <a href="/create-pokemon" class="btn btn-primary my-2">Crear nuevo pokemon</a>
-      </p>
+      <h1 class="fw-light">Pokedex App</h1>
+      <p class="lead text-muted">Una aplicacion hecha por amantes de pokemones para
+        amantes de pokemones</p>
     </div>
   </div>
 </section>
@@ -24,16 +23,7 @@
               <p class="card-text">{{poke.Region.dataValues.name}}</p>
                <p class="card-text">{{poke.Tipo.dataValues.name}}</p>
                <h6 class="card-subtitle mb-2 text-muted">{{poke.description}}</h6>
-              <a
-                href="/edit-pokemon/{{poke.Id}}?edit=true"
-                class="btn btn-warning"
-              >Editar</a>
 
-              <form class="form-inline" action="/confirm-delete-pokemon" method="post">
-                <input type="hidden" name="pokeId" value="{{poke.Id}}" />
-                <button type="submit"  class="btn btn-danger">Eliminar</button>
-
-              </form>
             </div>
           </div>
 

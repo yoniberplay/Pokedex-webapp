@@ -1,0 +1,48 @@
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">Mantenimineto de Regiones</h1>
+        <a href="/create-regions" class="btn btn-secondary my-2">Crear nueva region</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="album py-5 ">
+  <div class="container">
+
+    <div class="row">
+
+      {{#if hasRegions}}
+
+        {{#each regions as |tip|}}
+
+          <div class="card col-md-3 bg-dark">
+            <div class="card-body">
+              <h5 class="card-title">Nombre</h5>
+              <p class="lead text-muted">{{tip.name}}</p>
+              <h5 class="card-title">Descripcion</h5>
+<p class="lead text-muted">{{tip.description}}</p>
+              <a
+                href="/edit-regions/{{tip.Id}}?edit=true"
+                class="btn btn-warning"
+              >Editar</a>
+
+              <form class="form-inline" action="/confirm-delete-regions" method="post">
+                <input type="hidden" name="regionId" value="{{tip.Id}}" />
+                <button type="submit"  class="btn btn-danger">Eliminar</button>
+
+              </form>
+            </div>
+          </div>
+
+        {{/each}}
+      {{else}}
+
+        <h1>No hay regiones creadas</h1>
+
+      {{/if}}
+
+    </div>
+  </div>
+</div>
