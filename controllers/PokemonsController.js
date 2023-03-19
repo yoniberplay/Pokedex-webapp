@@ -4,35 +4,26 @@ const Pokemons = require("../models/Pokemon");
 
 
 exports.GetPokemonsListHome = (req, res, next) => {
+  let regionsViewModel;
+  let TipoViewModel;
+  let pokemons;
   Pokemons.findAll({ include: [{ all: true, nested: true }] })
     .then((result) => {
-      const pokemons = result.map((result) => result.dataValues);
-      res.render("pokemons/home", {
-        pageTitle: "Pokemons",
-        MantPoke: true,
-        pokemons: pokemons,
-        hasPokemons: pokemons.length > 0,
-      });
-    })
-    .catch((err) => {
-      res.render("Error/ErrorInterno", {
-        pageTitle: "Error Interno",
-        mensaje: err,
-      });
-    });
-};
-
-
-exports.GetPokemonsList = (req, res, next) => {
-  Pokemons.findAll({ include: [{ all: true, nested: true }] })
+      pokemons = result.map((result) => result.dataValues);
+      Regions.findAll()
     .then((result) => {
-      const pokemons = result.map((result) => result.dataValues);
-      res.render("pokemons/pokemons-list", {
-        pageTitle: "Pokemons",
-        MantPoke: true,
-        pokemons: pokemons,
-        hasPokemons: pokemons.length > 0,
+      regionsViewModel = result.map((result) => result.dataValues);
+      Tipo.findAll().then((result) => {
+        TipoViewModel = result.map((result) => result.dataValues);
+        res.render("pokemons/home", {
+          pageTitle: "Pokemons",
+          pokemons: pokemons,
+          hasPokemons: pokemons.length > 0,
+          Regions: regionsViewModel,
+          Tipos: TipoViewModel,
+        });
       });
+    })      
     })
     .catch((err) => {
       res.render("Error/ErrorInterno", {
@@ -59,6 +50,25 @@ exports.GetCreatePokemons = (req, res, next) => {
           Tipos: TipoViewModel,
           hasTipos: TipoViewModel.length > 0,
         });
+      });
+    })
+    .catch((err) => {
+      res.render("Error/ErrorInterno", {
+        pageTitle: "Error Interno",
+        mensaje: err,
+      });
+    });
+};
+
+exports.GetPokemonsList = (req, res, next) => {
+  Pokemons.findAll({ include: [{ all: true, nested: true }] })
+    .then((result) => {
+      const pokemons = result.map((result) => result.dataValues);
+      res.render("pokemons/pokemons-list", {
+        pageTitle: "Pokemons",
+        MantPoke: true,
+        pokemons: pokemons,
+        hasPokemons: pokemons.length > 0,
       });
     })
     .catch((err) => {
