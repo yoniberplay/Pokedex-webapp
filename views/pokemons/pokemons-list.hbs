@@ -1,52 +1,4 @@
-{{!-- <section class="py-5 text-center container">
-  <div class="row py-lg-5">
-    <div class="col-lg-6 col-md-8 mx-auto">
-      <h1 class="fw-light">Mantenimineto de Pokemones</h1>
-      <p>
-        <a href="/create-pokemon" class="btn btn-primary my-2">Crear nuevo pokemon</a>
-      </p>
-    </div>
-  </div>
-</section>
 
-<div class="album py-5 ">
-  <div class="container">
-
-    <div class="row ">
-
-      {{#if hasPokemons}}
-
-      {{#each pokemons as |poke|}}
-
-      <div class="card col-md-3 bg-dark">
-        <div class="card-body">
-          <h5 class="card-title">{{poke.name}}</h5>
-          <p class="card-text">{{poke.Region.dataValues.name}}</p>
-          <p class="card-text">{{poke.Tipo.dataValues.name}}</p>
-          <h6 class="card-subtitle mb-2 text-muted">{{poke.Description}}</h6>
-          <a href="/edit-pokemon/{{poke.Id}}?edit=true" class="btn btn-warning">Editar</a>
-
-          <form class="form-inline" action="/confirm-delete-pokemon" method="post">
-            <input type="hidden" name="pokeId" value="{{poke.Id}}" />
-            <button type="submit" class="btn btn-danger">Eliminar</button>
-
-          </form>
-        </div>
-      </div>
-
-      {{/each}}
-
-      {{else}}
-
-      <h1>no hay pokemones creados</h1>
-
-      {{/if}}
-
-    </div>
-  </div>
-</div> --}}
-
-{{#if hasPokemons}}
 
 <div class="container" align="center">
   <h2 class="mt-2 ml-5 d-inline-block align-bottom text-success">Mantenimiento de pokemons</h2>
@@ -56,6 +8,7 @@
   <a href="/create-pokemon" class="btn btn-primary btn-lg btn-block mt-2">Crear pokemon</a>
 </div>
 
+{{#if hasPokemons}}
 <div class="cards-wrapper ">
 
   <div class="row row-cols-4">
@@ -90,7 +43,6 @@
 
 
 {{else}}
-
-<h1>no hay pokemones creados</h1>
+<h3 class="text-center mt-4">No hay pokemones creados</h3>
 
 {{/if}}

@@ -12,5 +12,7 @@ router.get("/edit-pokemon/:pokeId", pokemonController.GetEditPokemons);
 router.post("/edit-pokemon", pokemonController.PostEditPokemons);
 router.post("/delete-pokemon", pokemonController.PostDeletePokemons);
 router.post("/confirm-delete-pokemon", pokemonController.PostConfirmDeletePokemons);
+router.get("/byregion/:regionId", pokemonController.GetPokemonbyregion);
+router.post("/findbyname", pokemonController.PostPokemonbyName);
 
 module.exports = router;
